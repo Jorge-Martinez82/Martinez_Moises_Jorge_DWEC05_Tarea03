@@ -5,7 +5,13 @@ import {useState} from "react";
 
 const Section = () => {
 
-    const [escena, setEscena] = useState(data[0]);
+    let [clase, setClase] = useState("activeSlide");
+
+    function clases() {
+        setClase( "nextSlide");
+    }
+
+    setInterval(clases, 2000)
     return (
         <>
             <main>
@@ -14,13 +20,18 @@ const Section = () => {
                         <h2>slider DWEC</h2>
                         <div className="underline"></div>
                     </div>
-                        <Article
-                            key={escena.id} // Es importante proporcionar una clave única para cada componente en un bucle
-                            img={escena.img}
-                            src={escena.src}
-                            categoria={escena.categoria}
-                            clase="activeSlide"
-                        />
+                    <div className="section-center">
+                        {data.map(escena => (
+                            <Article
+                                key={escena.id} // Es importante proporcionar una clave única para cada componente en un bucle
+                                img={escena.img}
+                                src={escena.src}
+                                categoria={escena.categoria}
+                                clase={clase}
+                            />
+                        ))}
+                    </div>
+
                 </section>
             </main>
         </>
