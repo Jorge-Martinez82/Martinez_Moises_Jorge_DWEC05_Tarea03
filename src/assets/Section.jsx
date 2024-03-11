@@ -1,9 +1,7 @@
-import Articles from "./Articles.jsx";
-import {useState} from "react";
+import Articles from "./Articles.jsx"; // importamos el componente Articles
 
-
+// en este caso simplemente renderizamos el componente Article
 const Section = () => {
-
     return (
         <>
             <main>
